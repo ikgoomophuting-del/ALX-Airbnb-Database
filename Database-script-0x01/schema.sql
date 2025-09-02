@@ -5,7 +5,7 @@ Airbnb Database Schema
 -- Drop tables if they exist (for testing purposes)
 DROP TABLE IF EXISTS messages, reviews, payments, bookings, properties, users CASCADE;
 
--- ============================
+
 -- Users Table
 
 CREATE TABLE users (
@@ -22,7 +22,7 @@ CREATE TABLE users (
 
 CREATE INDEX idx_users_email ON users(email);
 
--- ============================
+
 -- Properties Table
 
 CREATE TABLE properties (
@@ -39,7 +39,7 @@ CREATE TABLE properties (
 
 CREATE INDEX idx_properties_host_id ON properties(host_id);
 
--- ============================
+
 -- Bookings Table
 
 CREATE TABLE bookings (
@@ -57,7 +57,7 @@ CREATE TABLE bookings (
 CREATE INDEX idx_bookings_property_id ON bookings(property_id);
 CREATE INDEX idx_bookings_user_id ON bookings(user_id);
 
--- ============================
+
 -- Payments Table
 
 CREATE TABLE payments (
@@ -71,7 +71,7 @@ CREATE TABLE payments (
 
 CREATE INDEX idx_payments_booking_id ON payments(booking_id);
 
--- ============================
+
 -- Reviews Table
 
 CREATE TABLE reviews (
@@ -85,7 +85,7 @@ CREATE TABLE reviews (
 
 CREATE INDEX idx_reviews_property_id ON reviews(property_id);
 
--- =============================
+
 -- Messages Table
 
 CREATE TABLE messages (
