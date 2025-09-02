@@ -1,4 +1,4 @@
-# Airbnb Database Normalization (Up to 3NF)
+Airbnb Database Normalization (Up to 3NF)
 
 Objective
 To ensure the Airbnb database schema complies with the Third Normal Form (3NF), eliminating redundancy and ensuring data integrity.
