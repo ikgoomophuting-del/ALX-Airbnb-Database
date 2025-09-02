@@ -1,9 +1,9 @@
--- ============================
 -- Airbnb Database Schema (3NF)
--- ============================
 
 -- User Table
+
 CREATE TABLE users (
+
     user_id INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
@@ -15,7 +15,9 @@ CREATE TABLE users (
 );
 
 -- Property Table
+
 CREATE TABLE properties (
+
     property_id INT PRIMARY KEY AUTO_INCREMENT,
     host_id INT NOT NULL,
     name VARCHAR(100) NOT NULL,
@@ -28,7 +30,9 @@ CREATE TABLE properties (
 );
 
 -- Booking Table
+
 CREATE TABLE bookings (
+
     booking_id INT PRIMARY KEY AUTO_INCREMENT,
     property_id INT NOT NULL,
     user_id INT NOT NULL,
@@ -42,7 +46,9 @@ CREATE TABLE bookings (
 );
 
 -- Payment Table
+
 CREATE TABLE payments (
+
     payment_id INT PRIMARY KEY AUTO_INCREMENT,
     booking_id INT NOT NULL,
     amount DECIMAL(10,2) NOT NULL,
@@ -52,7 +58,9 @@ CREATE TABLE payments (
 );
 
 -- Review Table
+
 CREATE TABLE reviews (
+
     review_id INT PRIMARY KEY AUTO_INCREMENT,
     property_id INT NOT NULL,
     user_id INT NOT NULL,
@@ -64,7 +72,9 @@ CREATE TABLE reviews (
 );
 
 -- Message Table
+
 CREATE TABLE messages (
+
     message_id INT PRIMARY KEY AUTO_INCREMENT,
     sender_id INT NOT NULL,
     recipient_id INT NOT NULL,
@@ -74,12 +84,17 @@ CREATE TABLE messages (
     FOREIGN KEY (recipient_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
--- ============================
+
 -- Indexes for Optimization
--- ============================
+
 CREATE INDEX idx_property_location ON properties(location);
+
 CREATE INDEX idx_booking_user ON bookings(user_id);
+
 CREATE INDEX idx_booking_property ON bookings(property_id);
+
 CREATE INDEX idx_payment_booking ON payments(booking_id);
+
 CREATE INDEX idx_review_property ON reviews(property_id);
+
 CREATE INDEX idx_message_sender ON messages(sender_id);
