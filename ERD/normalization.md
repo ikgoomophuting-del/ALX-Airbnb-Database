@@ -10,7 +10,8 @@ To ensure the Airbnb database schema complies with the Third Normal Form (3NF), 
 - All attributes hold atomic values.
 - No repeating groups or multi-valued attributes.
 
-The schema is in 1NF
+The schama is in 1NF
+
 ---
 
 2. Second Normal Form (2NF)
@@ -37,7 +38,7 @@ Solution
 
 ---
 
-## 4. Final 3NF Schema
+4. Final 3NF Schema
 - **User**, **Property**, **Booking**, **Payment**, **Review**, and **Message** tables are in 3NF.
 - All attributes in each table depend only on the primary key, with no partial or transitive dependencies.
 
