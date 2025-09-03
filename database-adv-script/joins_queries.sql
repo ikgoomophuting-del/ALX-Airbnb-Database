@@ -21,7 +21,6 @@ SELECT
 FROM properties
 LEFT JOIN reviews ON properties.id = reviews.property_id;
 
-
 -- FULL OUTER JOIN: Retrieve all users and all bookings, even if user has no booking or booking is not linked to a user
 SELECT 
     u.user_id,
