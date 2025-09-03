@@ -5,7 +5,6 @@ This directory contains SQL scripts demonstrating complex queries using differen
 Files
 
 - **joins_queries.sql**: Contains queries using INNER JOIN, LEFT JOIN, and FULL OUTER JOIN.
-- **README.md**: This file.
 
 Queries
 
@@ -30,15 +29,4 @@ This folder contains SQL queries demonstrating the use of correlated and non-cor
 - **subqueries.sql**: Contains the following queries:
   1. Non-correlated subquery to find all properties where the average rating is greater than 4.0.
   2. Correlated subquery to find users who have made more than 3 bookings.
-
-Aggregations and Window Functions
-
-This directory contains SQL scripts demonstrating the use of aggregation functions and window functions.
-
-## Files
-
-- **aggregations_and_window_functions.sql**  
-  - Query 1: Uses `COUNT` and `GROUP BY` to find the total number of bookings per user.  
-  - Query 2: Uses `RANK()` window function to rank properties by total bookings.
-
 
