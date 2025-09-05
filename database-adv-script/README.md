@@ -21,6 +21,7 @@ Queries
    - Retrieves all users and all bookings.
    - Includes users without bookings and bookings not linked to any user.
 
+---
 
  Subqueries
 
@@ -31,4 +32,16 @@ This folder contains SQL queries demonstrating the use of correlated and non-cor
   1. Non-correlated subquery to find all properties where the average rating is greater than 4.0.
   2. Correlated subquery to find users who have made more than 3 bookings.
 
+
+ ---
+ 
+ Aggregations and Window Functions
+
+This directory contains SQL scripts demonstrating the use of aggregation functions and window functions.
+
+ Files
+
+- **aggregations_and_window_functions.sql**  
+  - Query 1: Uses `COUNT` and `GROUP BY` to find the total number of bookings per user.  
+  - Query 2: Uses `RANK()` window function to rank properties by total bookings.
 
