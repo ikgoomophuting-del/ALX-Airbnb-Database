@@ -1,6 +1,17 @@
-# Optimization Report
+ Optimization Report
 
-Initial Query
+ Initial Query
+The query joins Booking, User, Property, and Payment.
+
+ EXPLAIN Analysis
+- Found full table scans on User and Property.  
+- Joins on user_id and property_id were inefficient.  
+
+ Optimization
+- Added indexes on Booking.user_id, Booking.property_id, and Payment.booking_id.  
+- Refactored query executed faster (fewer scanned rows).
+- Initial Query
+
 The initial query retrieved all bookings along with user details, property details, and payment details using multiple `JOIN`s and selected many columns, including unnecessary ones.
 
 
