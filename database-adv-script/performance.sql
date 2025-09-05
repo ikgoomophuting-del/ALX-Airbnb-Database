@@ -29,3 +29,13 @@ FROM bookings b
 JOIN users u ON b.user_id = u.user_id
 JOIN properties p ON b.property_id = p.property_id
 LEFT JOIN payments pay ON b.booking_id = pay.booking_id;
+ 
+---
+
+Optimization done by:
+
+Selecting only necessary columns (instead of *).
+
+Using LEFT JOIN for payments (in case not all bookings have payments yet).
+
+Ensuring indexes exist on user_id, property_id, and booking_id (from previous tasks).
