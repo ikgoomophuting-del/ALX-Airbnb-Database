@@ -1,3 +1,11 @@
+-- Initial query
+SELECT b.id AS booking_id, u.name AS user_name, p.title AS property_title, pay.amount, pay.status
+FROM Booking b
+JOIN User u ON b.user_id = u.id
+JOIN Property p ON b.property_id = p.id
+JOIN Payment pay ON b.id = pay.booking_id;
+
+
 -- Initial unoptimized query
 SELECT b.booking_id,
        b.start_date,
