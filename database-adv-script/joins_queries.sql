@@ -12,15 +12,18 @@ FROM bookings b
 INNER JOIN users u ON b.user_id = u.user_id;
 
 -- LEFT JOIN: Retrieve all properties and their reviews, including properties with no reviews
-SELECT 
-    p.property_id,
+SELECT
+    p.id AS property_id,
     p.name AS property_name,
-    r.review_id,
+    r.id AS review_id,
     r.rating,
     r.comment
-FROM properties p
-LEFT JOIN reviews r ON p.property_id = r.property_id;
-
+FROM
+    properties AS p
+LEFT JOIN
+    reviews AS r ON p.id = r.property_id
+ORDER BY
+    p.id;
 -- FULL OUTER JOIN: Retrieve all users and all bookings, even if user has no booking or booking is not linked to a user
 SELECT 
     u.user_id,
