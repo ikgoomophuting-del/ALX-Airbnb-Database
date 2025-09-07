@@ -24,5 +24,8 @@ Queries were tested using PostgreSQL `EXPLAIN ANALYZE`.
 ```sql
 EXPLAIN ANALYZE
 SELECT * FROM bookings WHERE user_id = 'some-uuid';
+```
+# Before Index
+```sql
 
 EXPLAIN SELECT p.name, r.rating FROM properties AS p JOIN reviews AS r ON p.id = r.property_id WHERE r.rating > 4;
