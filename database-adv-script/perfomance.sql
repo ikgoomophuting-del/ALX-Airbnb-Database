@@ -1,12 +1,4 @@
--- Initial query
-SELECT b.id AS booking_id, u.name AS user_name, p.title AS property_title, pay.amount, pay.status
-FROM Booking b
-JOIN User u ON b.user_id = u.id
-JOIN Property p ON b.property_id = p.id
-JOIN Payment pay ON b.id = pay.booking_id;
-
-
--- Initial unoptimized query
+-- Initial query retrieving bookings with user, property, and payment details
 SELECT b.booking_id,
        b.start_date,
        b.end_date,
@@ -22,7 +14,9 @@ SELECT b.booking_id,
 FROM bookings b
 JOIN users u ON b.user_id = u.user_id
 JOIN properties p ON b.property_id = p.property_id
-JOIN payments pay ON b.booking_id = pay.booking_id;
+JOIN payments pay ON b.booking_id = pay.booking_id
+WHERE b.start_date IS NOT NULL
+  AND pay.status = 'completed';
 
 ---
 
@@ -36,14 +30,36 @@ SELECT b.booking_id,
 FROM bookings b
 JOIN users u ON b.user_id = u.user_id
 JOIN properties p ON b.property_id = p.property_id
-LEFT JOIN payments pay ON b.booking_id = pay.booking_id;
- 
+LEFT JOIN payments pay ON b.booking_id = pay.booking_id
+WHERE b.start_date IS NOT NULL
+  AND (pay.status = 'completed' OR pay.status IS NULL);
+
 ---
 
-Optimization done by:
+-- Analyze query performance with EXPLAIN
+EXPLAIN SELECT b.booking_id,
+                b.start_date,
+                b.end_date,
+                u.user_id,
+                u.name AS user_name,
+                u.email,
+                p.property_id,
+                p.title AS property_title,
+                p.location,
+                pay.payment_id,
+                pay.amount,
+                pay.status
+FROM bookings b
+JOIN users u ON b.user_id = u.user_id
+JOIN properties p ON b.property_id = p.property_id
+JOIN payments pay ON b.booking_id = pay.booking_id
+WHERE b.start_date IS NOT NULL
+  AND pay.status = 'completed';
 
-Selecting only necessary columns (instead of *).
+---
 
-Using LEFT JOIN for payments (in case not all bookings have payments yet).
-
-Ensuring indexes exist on user_id, property_id, and booking_id (from previous tasks).
+-- Notes on Optimization:
+-- 1. Selected only necessary columns instead of SELECT *.
+-- 2. Used LEFT JOIN for payments in optimized query (to include unpaid bookings).
+-- 3. Added WHERE with AND to filter meaningful records.
+-- 4. Ensure indexes on user_id, property_id, booking_id, and pay.status for better performance.
